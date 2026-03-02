@@ -3,193 +3,524 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fenix Car Hire - For All Your Rental Needs</title>
+  <title>Fenix Car Hire - Premium Vehicle Rentals in Eswatini</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
+      box-sizing: border-box;
     }
-    header {
-      background: linear-gradient(to right, #003087, #0066cc);
-      color: white;
-      text-align: center;
-      padding: 60px 20px 40px;
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #1a1a1a;
+      line-height: 1.6;
     }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    header p {
-      font-size: 1.4em;
-      margin: 10px 0;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    section {
+
+    /* Navigation */
+    nav {
       background: white;
-      margin: 30px 0;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #003087;
-      border-bottom: 3px solid #0066cc;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-    .contact {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: #c41e3a;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #c41e3a;
+    }
+
+    .cta-button {
+      background: #c41e3a;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background: #a01730;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+      color: white;
+      padding: 5rem 2rem;
       text-align: center;
     }
-    .contact div {
-      flex: 1 1 200px;
-      margin: 15px;
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-balance: true;
     }
-    .fleet img {
-      width: 100%;
-      max-width: 800px;
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .cta-button {
+      font-size: 1.1rem;
+      padding: 1rem 2.5rem;
+      display: inline-block;
+      box-shadow: 0 8px 20px rgba(196, 30, 58, 0.3);
+    }
+
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2rem;
       border-radius: 10px;
-      margin: 20px auto;
-      display: block;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      color: #c41e3a;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .feature-card p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 3.5rem 2rem;
+      background: white;
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+
+    section:nth-child(odd) {
+      background: #f8f9fa;
+    }
+
+    h2 {
+      color: #1a1a1a;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      border-left: 4px solid #c41e3a;
+      padding-left: 1rem;
+    }
+
+    .section-subtitle {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    /* Fleet Grid */
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .fleet-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .fleet-item:hover {
+      transform: scale(1.02);
+    }
+
+    .fleet-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .fleet-info {
+      padding: 1.5rem;
+    }
+
+    .fleet-info h3 {
+      color: #c41e3a;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Pricing Table */
+    .pricing-wrapper {
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
+
     th {
-      background-color: #0066cc;
+      background: #c41e3a;
       color: white;
+      padding: 1.2rem;
+      text-align: left;
+      font-weight: 600;
     }
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
+
+    td {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid #eee;
     }
-    .note {
-      font-size: 0.9em;
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover {
+      background: #f9f9f9;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .contact-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 4px solid #c41e3a;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .contact-item strong {
+      color: #c41e3a;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-item p {
       color: #555;
-      margin-top: 10px;
+      margin: 0.3rem 0;
     }
+
+    /* Footer */
     footer {
-      background: #003087;
+      background: #1a1a1a;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-top: 3px solid #c41e3a;
     }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    .footer-links {
+      margin-top: 1rem;
+      color: #c41e3a;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      header h1 { font-size: 2.2em; }
-      .contact div { flex: 1 1 100%; }
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      section {
+        margin: 1rem 0;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      th, td {
+        padding: 0.8rem;
+      }
+    }
+
+    /* Note styling */
+    .note {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 6px;
+      color: #555;
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+      border-left: 4px solid #c41e3a;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Fenix Car Hire</h1>
-    <p>For All Your Rental Needs...</p>
-  </header>
+  <!-- Navigation -->
+  <nav>
+    <a href="#home" class="logo">🚗 Fenix</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#fleet">Fleet</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button">Book Now</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Premium Car Rental in Eswatini</h1>
+    <p>Reliable, affordable, and professional vehicle rental services for all your travel needs</p>
+    <button class="cta-button">Start Your Rental</button>
+  </section>
+
+  <!-- Features -->
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">✓</div>
+      <h3>Modern Fleet</h3>
+      <p>Well-maintained vehicles including Toyota, VW, Nissan, and powerful pickups</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <h3>Best Rates</h3>
+      <p>Competitive daily and weekly pricing with discounts for longer rentals</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🛡️</div>
+      <h3>Safe & Insured</h3>
+      <p>All vehicles include basic insurance and comprehensive safety features</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📞</div>
+      <h3>24/7 Support</h3>
+      <p>Professional customer service ready to assist you anytime</p>
+    </div>
+  </div>
 
   <div class="container">
 
+    <!-- About Section -->
     <section id="about">
       <h2>Welcome to Fenix Car Hire</h2>
-      <p>We provide reliable, safe, and comfortable vehicle rentals for all your needs – whether it's airport transfers, business trips, upcountry travel, events, or chauffeur-driven services.</p>
-      <p>Our modern fleet includes popular models like Toyota, VW, Nissan, and more – from compact cars to powerful double-cab pickups.</p>
+      <p class="section-subtitle">Your trusted partner for vehicle rentals across Eswatini</p>
+      <p>At Fenix Car Hire, we provide reliable, safe, and comfortable vehicle rentals for all your needs – whether it's airport transfers, business trips, upcountry travel, special events, or chauffeur-driven services.</p>
+      <p style="margin-top: 1rem;">Our modern fleet features quality vehicles from trusted manufacturers including Toyota, VW, Nissan, and more – from practical compact cars to powerful double-cab pickups suited for any terrain.</p>
     </section>
 
-    <section id="pricing">
-      <h2>Our Rental Prices (Sample Rates – Contact Us for Quotes)</h2>
-      <p>Prices are per day (24 hours), standard season. Longer rentals get better rates!</p>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Vehicle Type</th>
-            <th>Examples</th>
-            <th>Daily Rate (E)</th>
-            <th>Weekly Rate (7 days)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Economy / Small Car</td>
-            <td>VW Polo, Toyota Yaris, similar</td>
-            <td>E 450 – E 550</td>
-            <td>E 2,700 (≈10% off)</td>
-          </tr>
-          <tr>
-            <td>Sedan / Mid-size</td>
-            <td>Toyota Corolla, Hyundai Elantra, similar</td>
-            <td>E 550 – E 700</td>
-            <td>E 3,400 (≈12% off)</td>
-          </tr>
-          <tr>
-            <td>SUV / Crossover</td>
-            <td>Toyota Rav4, Nissan Qashqai, similar</td>
-            <td>E 700 – E 850</td>
-            <td>E 4,400 (≈10–15% off)</td>
-          </tr>
-          <tr>
-            <td>Double Cab Pickup</td>
-            <td>Toyota Hilux, Ford Ranger, Isuzu D-Max</td>
-            <td>E 800 – E 950</td>
-            <td>E 5,000+ (negotiable)</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="note">* Rates include basic insurance. Fuel on return policy. Additional driver E50/day. Airport delivery/pickup available (fees may apply). Prices subject to change – please confirm current rates. 4x4 and automatic options available on request.</p>
-    </section>
-
+    <!-- Fleet Section -->
     <section id="fleet">
       <h2>Our Fleet</h2>
-      <p>Modern, well-maintained vehicles ready for your journey.</p>
-      <!-- Replace src with your actual image URL or local path -->
-      <img src="https://via.placeholder.com/800x400?text=Fenix+Car+Hire+Fleet+(Toyota,+VW,+Nissan+Pickups)" alt="Fenix Car Hire Fleet - Various cars and pickups" class="fleet" />
-      <!-- If you have the flyer image, upload it and use: <img src="your-fleet-photo.jpg" ... /> -->
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us Today!</h2>
-      <div class="contact">
-        <div>
-          <strong>Cell:</strong><br>
-          (+268) 7682 9797
+      <p class="section-subtitle">Quality vehicles ready for your journey</p>
+      <div class="fleet-grid">
+        <div class="fleet-item">
+          <img src="https://via.placeholder.com/300x200?text=Economy+Car" alt="Economy car rental">
+          <div class="fleet-info">
+            <h3>Economy Cars</h3>
+            <p>Perfect for city driving and fuel efficiency</p>
+          </div>
         </div>
-        <div>
-          <strong>Tel:</strong><br>
-          (+268) 2422 1045
+        <div class="fleet-item">
+          <img src="https://via.placeholder.com/300x200?text=Sedan" alt="Sedan rental">
+          <div class="fleet-info">
+            <h3>Sedans</h3>
+            <p>Comfortable and spacious for business and leisure</p>
+          </div>
         </div>
-        <div>
-          <strong>Email:</strong><br>
-          info@sempeerfi.co.sz<br>
-          fenixreception@sempeerfi.co.sz
+        <div class="fleet-item">
+          <img src="https://via.placeholder.com/300x200?text=SUV" alt="SUV rental">
+          <div class="fleet-info">
+            <h3>SUVs</h3>
+            <p>Adventure-ready with excellent cargo space</p>
+          </div>
+        </div>
+        <div class="fleet-item">
+          <img src="https://via.placeholder.com/300x200?text=Pickup" alt="Pickup truck rental">
+          <div class="fleet-info">
+            <h3>Double-Cab Pickups</h3>
+            <p>Powerful vehicles for heavy-duty work</p>
+          </div>
         </div>
       </div>
-      <p style="text-align:center; margin-top:30px;">We're based in Mbabane/Sidwashini area – ready to serve all of Eswatini!</p>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+      <h2>Transparent Pricing</h2>
+      <p class="section-subtitle">All rates are per 24-hour rental period. Longer rentals include special discounts!</p>
+      
+      <div class="pricing-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Vehicle Type</th>
+              <th>Examples</th>
+              <th>Daily Rate</th>
+              <th>Weekly Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Economy / Small Car</strong></td>
+              <td>VW Polo, Toyota Yaris</td>
+              <td>E 450 – E 550</td>
+              <td>E 2,700 (10% off)</td>
+            </tr>
+            <tr>
+              <td><strong>Sedan / Mid-size</strong></td>
+              <td>Toyota Corolla, Hyundai Elantra</td>
+              <td>E 550 – E 700</td>
+              <td>E 3,400 (12% off)</td>
+            </tr>
+            <tr>
+              <td><strong>SUV / Crossover</strong></td>
+              <td>Toyota Rav4, Nissan Qashqai</td>
+              <td>E 700 – E 850</td>
+              <td>E 4,400 (10–15% off)</td>
+            </tr>
+            <tr>
+              <td><strong>Double Cab Pickup</strong></td>
+              <td>Toyota Hilux, Ford Ranger, Isuzu D-Max</td>
+              <td>E 800 – E 950</td>
+              <td>E 5,000+ (negotiable)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <strong>What's Included:</strong> Basic insurance • Professional driver service • Airport delivery/pickup available • Additional driver options available at E50/day • 4x4 and automatic transmission available upon request • Competitive rates subject to current market conditions
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p class="section-subtitle">Reach out today for quotes and bookings</p>
+      
+      <div class="contact-grid">
+        <div class="contact-item">
+          <strong>📱 Cell Phone</strong>
+          <p>(+268) 7682 9797</p>
+        </div>
+        <div class="contact-item">
+          <strong>☎️ Telephone</strong>
+          <p>(+268) 2422 1045</p>
+        </div>
+        <div class="contact-item">
+          <strong>✉️ Email</strong>
+          <p>info@sempeerfi.co.sz</p>
+          <p>fenixreception@sempeerfi.co.sz</p>
+        </div>
+      </div>
+
+      <div style="background: #f0f0f0; padding: 2rem; border-radius: 8px; margin-top: 2rem; text-align: center;">
+        <h3 style="color: #c41e3a; margin-bottom: 0.5rem;">Service Area</h3>
+        <p style="color: #555;">We're based in the Mbabane/Sidwashini area and proudly serve all of Eswatini with professional, reliable service.</p>
+      </div>
     </section>
 
   </div>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Fenix Car Hire. All rights reserved. | For all your rental needs...</p>
+    <p>&copy; 2026 Fenix Car Hire. All rights reserved.</p>
+    <p class="footer-links">Excellence in Car Rental Services</p>
   </footer>
 
 </body>
